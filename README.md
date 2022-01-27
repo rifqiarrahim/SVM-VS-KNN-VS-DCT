@@ -63,11 +63,12 @@ Laurel, MD 20707
 (c) Tanggal diterima: 9 Mei 1990<br>
 
 Pertama, saya menghapus kolom skinthickness karena data tersebut tidak lengkap, dalam kagle dijelaskan tidak semua rentang umur mempunyai data skinthickness<br>
+
+![sebaran](sebaran.jpg)<br>
+Skewness adalah kondisi di mana dataset cenderung memiliki distribusi data yang tidak seimbang. Skewness akan mempengaruhi data dengan menciptakan bias terhadap model. Dari visualisasi diatas dapat disimpulkan kolom insulin memiliki distribusi yang tidak seimbang.<br>
 Setelah itu saya mengecek korelasi antara outcome dengan fitur-fitur yang lain.
-![sebaran](sebaran.jpg)
-Skewness adalah kondisi di mana dataset cenderung memiliki distribusi data yang tidak seimbang. Skewness akan mempengaruhi data dengan menciptakan bias terhadap model. 
-![Korelasi](korelasi.jpg)
-Didapatkan hasil bahwa Glucose memiliki korelasi paling kuat dengan outcome dibandingkan dengan fitur yang lainnya.<br>
+![Korelasi](korelasi.jpg)<br>
+Dapat dilihat pada bagian bawah  Glucose memiliki korelasi paling kuat dengan outcome dibandingkan dengan fitur yang lainnya yaitu bernilai 0.5. Jika nilai korelasi semakin mendekati 1 maka korelasi antara dua fitur tersebut makin kuat<br>
 
  
  
