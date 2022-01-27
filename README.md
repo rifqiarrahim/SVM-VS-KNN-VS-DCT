@@ -89,16 +89,16 @@ Saya melakukan standarisasi agar algoritma machine learning memiliki performa le
  
 ## Modelling
 Tahap ini saya mengembangkan model machine learning dengan tiga algoritma yaitu KNN, Decision Tree, dan SVM. Model dibangung dengan bantuan library skicit learn. Setelah memanggil library penulis melakukan hyperparameter tuning dengan bantuan gridsearchcv. <br>
-Untuk parameter SVM sebagai berikut:
+### SVM
+Model ini membuat sebuah Hyperplane di antara data dengan margin yang maksimal. Hyperplane adalah sebuah garis yang memisahkan data positif diabetes dan negatif diabetes. Margin adalah jarak Hyperplane dengan data tersebut. Semakin besar margin yang dibuat, semakin tinggi akurasi yang kita dapatkan.
 - C : 1.0<br>
 Fungsi Parameter : Seberapa besar kita ingin menghindari kesalahan klasifikasi setiap training. Saya menggunakan nilai default yaitu 1.0.
 - degree : 3<br>
 Fungsi Parameter : Derajat fungsi kernel. Saya menggunakan nilai default yaitu 3.
 - gamma : scale<br>
 Fungsi Parameter : Seberapa jauh pengaruh setiap satu training. Saya menggunakan nilai default yaitu 'scale'.
-<br>
-<br>
-Untuk parameter KNN sebagai berikut:
+### KNN
+Pertama model akan menentukan nilai k. Nilai k adalah jumlah n_neighbors atau data terdekat yang akan dijadikan acuan. Lalu model akan menghitung jarak tersebut dan melakukan klasifikasi.
 - leaf_size : 30<br>
 Fungsi Parameter : leaf_size dapat mempengaruhi kecepatan dan memori yang diperlukan untuk menyimpan pohon.
 - n_neighbors : 10<br>
@@ -106,9 +106,9 @@ Fungsi Parameter : n_neighbors untuk mengatur nilai k pada KNN.
 - weights : distance<br>
 Fungsi Parameter : Semakin dekat data maka akan semakin besar pengaruh yang diberikan.
 - metric : euclidian<br>
-Fungsi Parameter : Fungsi untuk menghitung jarak<br>
-<br>
-Untuk parameter Decision Tree sebagai berikut:
+Fungsi Parameter : Fungsi untuk menghitung jarak
+### Decision Tree
+Model akan membuat sebuah root nodes, lalu akan membuat percabangan dengan memilih fitur-fitur yang ada dengan menghitung entropy dan information gain. Ketika tree sudah mencapai leaf nodes atau tidak mempunyai cabang lagi, maka nodes tersebut merupakan output dari model
 - criterion : gini<br>
 Fungsi Parameter : Fungsi untuk mengukur kualitas percabangan.
 - max_depth : 3<br>
@@ -118,7 +118,8 @@ Fungsi Parameter : Menentukan jumlah fitur ketika bercabang.
 - min_samples_leaf : 5<br>
 Fungsi Parameter : Minimum jumlah sampel yang dibutuhkan untuk leaf node.
 - min_samples_split : 2<br>
-Fungsi Parameter : Minimum jumlah sampel untuk internal node bercabang.<br>
+Fungsi Parameter : Minimum jumlah sampel untuk internal node bercabang.
+### Accuracy
 Saya mendapatkan hasil akurasi dari ketiga algoritma diatas.
 - [SVM](https://drive.google.com/file/d/1b9_HkMzKgHH2fq7HQagEpOgOurloasGs/view?usp=sharing) = 84%
 - [KNN](https://drive.google.com/file/d/1kaaeIi8WNxYYuGr_TfYE0hgFae_QphhD/view?usp=sharing) = 99%
@@ -129,8 +130,8 @@ Fitur glucose memiliki nilai korelasi yang besar dengan label outcome berdasarka
 Dari ketiga model di atas saya menggunakan metrics.classisfication_report yang merupakan library bawaan dari skicitlearn untuk mengevaluasi model. Output dari model dapat diklasifikasikan menjadi empat.<br>
 1. True Positive atau TP. Ketika model memberikan output positif diabetes dan label data test bernilai positif diabetes.
 2. True Negative atau TN. Ketika model memberikan output negatif diabetes dan label data test bernilai negatif diabetes.
-3. False Positive atau FP. Ketika model memberikan output positif diabetes sedangkan label data test bernilai negative diabetes.
-4. False Negative atau FN. Ketika model memberikan output negative diabetes sedangkan label data test bernilai positive diabetes.
+3. False Positive atau FP. Ketika model memberikan output positif diabetes sedangkan label data test bernilai negatif diabetes.
+4. False Negative atau FN. Ketika model memberikan output negatif diabetes sedangkan label data test bernilai positive diabetes.
 $$Precision = \frac{TP}{TP + FP} $$<br>
 $$Recall = \frac{TP}{TP + FN} $$<br>
 $$F1 = \frac{2 * Precision*Recall}{Precision+Recall}$$<br>
