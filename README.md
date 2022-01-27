@@ -61,28 +61,30 @@ Jalan John Hopkins
 Laurel, MD 20707
 (301) 953-6231<br>
 (c) Tanggal diterima: 9 Mei 1990<br>
- 
+
 Pertama, saya menghapus kolom skinthickness karena data tersebut tidak lengkap, dalam kagle dijelaskan tidak semua rentang umur mempunyai data skinthickness<br>
 Setelah itu saya mengecek korelasi antara outcome dengan fitur-fitur yang lain.
-Didapatkan hasil bahwa Glucose memiliki korelasi paling kuat dengan outcome dibandingkan dengan fitur yang lainnya.<br>
+![sebaran](sebaran.jpg)
+Skewness adalah kondisi di mana dataset cenderung memiliki distribusi data yang tidak seimbang. Skewness akan mempengaruhi data dengan menciptakan bias terhadap model. 
 ![Korelasi](korelasi.jpg)
+Didapatkan hasil bahwa Glucose memiliki korelasi paling kuat dengan outcome dibandingkan dengan fitur yang lainnya.<br>
+
  
  
 ## Data preparation
-### Teknik Yang Digunakan
-1.Interquartile<br>
-2.Standarisasi<br>
-### Feature Selection
-saya menghapus kolom skinthickness karena data tersebut tidak lengkap, dalam kagle dijelaskan tidak semua rentang umur mempunyai data skinthickness.<br>
 ### Data Cleaning
-- Missing Value : saya mengecek nilai 0 pada kolom glucose, BloodPressure, BMI, DiabetesPedigreeFunction dan Age karena data tersebut tidak mungkin 0.
-Selanjutnya saya menghapus data di kolom tersebut yang bernilai 0. 
-- Outlier Removal : Setelah itu saya menggunakan boxplot terhadap semua fitur untuk melihat penyebaran data dan outliers. Lalu menggunakan metode interquartile untuk mengecek outliers.Jika terdapat outliers/pencilan maka hapus data tersebut.
+#### Basics
+Saya menghapus kolom skinthickness karena data tersebut tidak lengkap, dalam kagle dijelaskan tidak semua rentang umur mempunyai data skinthickness.
+#### Missing Value
+Saya mengecek nilai 0 pada kolom glucose, BloodPressure, BMI, DiabetesPedigreeFunction dan Age karena data tersebut tidak mungkin bernilai 0.
+Ketika ada data di kolom tersebut yang bernilai 0, Saya akan menghapus record tersebut. 
+#### Outliers
+Saya menggunakan boxplot terhadap semua fitur untuk melihat penyebaran data dan outliers. Lalu menggunakan metode interquartile untuk mengecek outliers.Jika terdapat outliers/pencilan maka hapus data tersebut.
 ### Data Transforms
-- Train Test Split : Dalam tahap ini saya membagi dataset menjadi data latih sebanyak 90% dan data uji sebanyak 10%.
-- Standardization : Setelah itu saya melakukan standarisasi agar algoritma machine learning memiliki performa lebih baik dan
-konvergen lebih cepat ketika dimodelkan pada data dengan skala relatif sama atau mendekati distribusi normal.
-Proses standarisasi membantu untuk membuat fitur data menjadi bentuk yang lebih mudah diolah oleh algoritma.
+#### Train Test Split
+Dalam tahap ini saya membagi dataset menjadi data latih sebanyak 90% dan data uji sebanyak 10%.
+#### Standardization
+Saya melakukan standarisasi agar algoritma machine learning memiliki performa lebih baik dan konvergen lebih cepat ketika dimodelkan pada data dengan skala relatif sama atau mendekati distribusi normal. Proses standarisasi membantu untuk membuat fitur data menjadi bentuk yang lebih mudah diolah oleh algoritma.
  
 ## Modelling
 Tahap ini saya mengembangkan model machine learning dengan tiga algoritma yaitu KNN, Decision Tree, dan SVM. Model dibangung dengan bantuan library skicit learn. Setelah memanggil library penulis melakukan hyperparameter tuning dengan bantuan gridsearchcv. <br>
@@ -122,17 +124,20 @@ Saya mendapatkan hasil akurasi dari ketiga algoritma diatas.
 - [Decision Tree](https://drive.google.com/file/d/1Xfa1ePXUDDFOnhwpfg2f8llM4QhTvVZw/view?usp=sharing) = 99%
  
 ## Evaluation
-![Korelasi](korelasi.jpg)
 Fitur glucose memiliki nilai korelasi yang besar dengan label outcome berdasarkan hal itu dapat disimpulkan bahwa kadar glukosa dalam tubuh merupakan faktor yang paling berpengaruh untuk mengidentifikasi apakah pasien mengidap diabetes atau tidak.<br>
+Dari ketiga model di atas saya menggunakan metrics.classisfication_report yang merupakan library bawaan dari skicitlearn untuk mengevaluasi model. Output dari model dapat diklasifikasikan menjadi empat.<br>
+1. True Positive atau TP. Ketika model memberikan output positif diabetes dan label data test bernilai positif diabetes.
+2. True Negative atau TN. Ketika model memberikan output negatif diabetes dan label data test bernilai negatif diabetes.
+3. False Positive atau FP. Ketika model memberikan output positif diabetes sedangkan label data test bernilai negative diabetes.
+4. False Negative atau FN. Ketika model memberikan output negative diabetes sedangkan label data test bernilai positive diabetes.
+$$Precision = \frac{TP}{TP + FP} $$<br>
+$$Recall = \frac{TP}{TP + FN} $$<br>
+$$F1 = \frac{2 * Precision*Recall}{Precision+Recall}$$<br>
 ### SVM
 ![SVM](SVM.jpg)
 ### KNN
 ![KNN](KNN.jpg)
 ### Decision Tree
 ![DCT](DCT.jpg)<br>
-Dari ketiga model di atas saya menggunakan metrics.classisfication_report yang merupakan library bawaan dari skicitlearn untuk mengevaluasi model.<br>
-Precision = TP / TP + FP <br>
-Recall = TP / TP + FN <br>
-F1 = 2 * precision*recall/precision+recall<br>
-Nilai precision, recall, dan f1-score sering digunakan untuk mengevaluasi masalah klasifikasi.Dari nilai precision, recall, f1-score model KNN dan Decision Tree memiliki nilai terbaik. 
+Nilai precision, recall, dan f1-score sering digunakan untuk mengevaluasi masalah klasifikasi. Dari nilai f1-score model KNN dan Decision Tree memiliki nilai lebih baik dibandingkan model SVM. Jadi dapat disimpulkan model KNN dan Decision Tree dapat memberikan output yang lebih tepat dibandingkan model SVM. 
  
