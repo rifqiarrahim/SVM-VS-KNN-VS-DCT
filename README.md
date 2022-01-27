@@ -129,7 +129,7 @@ Fitur glucose memiliki nilai korelasi yang besar dengan label outcome berdasarka
 ### KNN
 ![KNN](KNN.jpg)
 ### Decision Tree
-![DCT](DCT.jpg)
+![DCT](DCT.jpg)<br>
 Dari ketiga model di atas saya menggunakan metrics.classisfication_report yang merupakan library bawaan dari skicitlearn untuk mengevaluasi model.<br>
 Precision = TP / TP + FP <br>
 Recall = TP / TP + FN <br>
