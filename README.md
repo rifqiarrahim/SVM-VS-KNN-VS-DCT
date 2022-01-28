@@ -65,10 +65,10 @@ Laurel, MD 20707
 Pertama, saya menghapus kolom skinthickness karena data tersebut tidak lengkap, dalam kagle dijelaskan tidak semua rentang umur mempunyai data skinthickness<br>
 
 ![sebaran](sebaran.jpg)<br>
-Skewness adalah kondisi di mana dataset cenderung memiliki distribusi data yang tidak seimbang. Skewness akan mempengaruhi data dengan menciptakan bias terhadap model. Dari visualisasi diatas dapat disimpulkan kolom insulin memiliki distribusi yang tidak seimbang.<br>
+Skewness adalah kondisi di mana dataset cenderung memiliki distribusi data yang tidak seimbang. Skewness akan mempengaruhi data dengan menciptakan bias terhadap model. Dari visualisasi diatas dapat disimpulkan kolom insulin dan DiabetesPedigreeFunction memiliki distribusi yang tidak seimbang. Oleh karena itu saya melakukan Reciprocal Transformation<br>
 Setelah itu saya mengecek korelasi antara outcome dengan fitur-fitur yang lain.
 ![Korelasi](korelasi.jpg)<br>
-Dapat dilihat pada bagian bawah  Glucose memiliki korelasi paling kuat dengan outcome dibandingkan dengan fitur yang lainnya yaitu bernilai 0.5. Jika nilai korelasi semakin mendekati 1 maka korelasi antara dua fitur tersebut makin kuat<br>
+Jika nilai korelasi semakin mendekati 1 maka korelasi antara dua fitur tersebut makin kuat. Dapat dilihat pada bagian bawah  Glucose memiliki korelasi paling kuat dengan outcome dibandingkan dengan fitur yang lainnya yaitu bernilai 0.5. Sedangkan kolom Insulin memiliki nilai yang paling mendekati 0. Oleh karena itu saya menghapus kolom insulin <br>
 
  
  
@@ -119,11 +119,6 @@ Fungsi Parameter : Menentukan jumlah fitur ketika bercabang.
 Fungsi Parameter : Minimum jumlah sampel yang dibutuhkan untuk leaf node.
 - min_samples_split : 2<br>
 Fungsi Parameter : Minimum jumlah sampel untuk internal node bercabang.
-### Accuracy
-Saya mendapatkan hasil akurasi dari ketiga algoritma diatas.
-- [SVM](https://drive.google.com/file/d/1b9_HkMzKgHH2fq7HQagEpOgOurloasGs/view?usp=sharing) = 84%
-- [KNN](https://drive.google.com/file/d/1kaaeIi8WNxYYuGr_TfYE0hgFae_QphhD/view?usp=sharing) = 99%
-- [Decision Tree](https://drive.google.com/file/d/1Xfa1ePXUDDFOnhwpfg2f8llM4QhTvVZw/view?usp=sharing) = 99%
  
 ## Evaluation
 Fitur glucose memiliki nilai korelasi yang besar dengan label outcome berdasarkan hal itu dapat disimpulkan bahwa kadar glukosa dalam tubuh merupakan faktor yang paling berpengaruh untuk mengidentifikasi apakah pasien mengidap diabetes atau tidak.<br>
@@ -136,10 +131,10 @@ $$Precision = \frac{TP}{TP + FP} $$<br>
 $$Recall = \frac{TP}{TP + FN} $$<br>
 $$F1 = \frac{2 * Precision*Recall}{Precision+Recall}$$<br>
 ### SVM
-![SVM](SVM.jpg)
+![SVM](SVM(2).jpg)
 ### KNN
-![KNN](KNN.jpg)
+![KNN](KNN(2).jpg)
 ### Decision Tree
-![DCT](DCT.jpg)<br>
+![DCT](DCT(2).jpg)<br>
 Nilai precision, recall, dan f1-score sering digunakan untuk mengevaluasi masalah klasifikasi. Dari nilai f1-score model KNN dan Decision Tree memiliki nilai lebih baik dibandingkan model SVM. Jadi dapat disimpulkan model KNN dan Decision Tree dapat memberikan output yang lebih tepat dibandingkan model SVM. 
  
