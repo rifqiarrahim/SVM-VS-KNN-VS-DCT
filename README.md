@@ -81,6 +81,10 @@ Saya mengecek nilai 0 pada kolom glucose, BloodPressure, BMI, DiabetesPedigreeFu
 Ketika ada data di kolom tersebut yang bernilai 0, Saya akan menghapus record tersebut. 
 #### Outliers
 Saya menggunakan boxplot terhadap semua fitur untuk melihat penyebaran data dan outliers. Lalu menggunakan metode interquartile untuk mengecek outliers.Jika terdapat outliers/pencilan maka hapus data tersebut.
+### Feature Engineering
+Feature Engineering merupakan proses membuat variabel input baru dari variabel data yang sudah ada. Berdasarkan hasil data Understanding kolom Insulin dan DiabetesPedigreeFunction memiliki sebaran data yang buruk. Sehingga saya melakukan Square Root Transformation pada kolom tersebut. Square Root Transformation mengubah nilai dengan mengakarkan nilai tersebut.
+### Feature Selection
+Feature Selection digunakan untuk mencari fitur yang relevan dengant outcome. Dari hasil data understanding dapat disimpulkan fitur Insulin kurang relevan digunakan karena memiliki nilai korelasi 0.05 atau mendekati 0.
 ### Data Transforms
 #### Train Test Split
 Dalam tahap ini saya membagi dataset menjadi data latih sebanyak 90% dan data uji sebanyak 10%.
