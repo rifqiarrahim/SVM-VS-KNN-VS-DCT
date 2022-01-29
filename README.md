@@ -65,7 +65,7 @@ Laurel, MD 20707
 Pertama, saya menghapus kolom skinthickness karena data tersebut tidak lengkap, dalam kagle dijelaskan tidak semua rentang umur mempunyai data skinthickness<br>
 
 ![sebaran](sebaran.jpg)<br>
-Skewness adalah kondisi di mana dataset cenderung memiliki distribusi data yang tidak seimbang. Skewness akan mempengaruhi data dengan menciptakan bias terhadap model. Dari visualisasi diatas dapat disimpulkan kolom insulin dan DiabetesPedigreeFunction memiliki distribusi yang tidak seimbang. Oleh karena itu saya melakukan Reciprocal Transformation<br>
+Skewness adalah kondisi di mana dataset cenderung memiliki distribusi data yang tidak seimbang. Skewness akan mempengaruhi data dengan menciptakan bias terhadap model. Dari visualisasi diatas dapat disimpulkan kolom insulin dan DiabetesPedigreeFunction memiliki distribusi yang tidak seimbang. Oleh karena itu saya melakukan Square Root Transformation<br>
 Setelah itu saya mengecek korelasi antara outcome dengan fitur-fitur yang lain.
 ![Korelasi](korelasi.jpg)<br>
 Jika nilai korelasi semakin mendekati 1 maka korelasi antara dua fitur tersebut makin kuat. Dapat dilihat pada bagian bawah  Glucose memiliki korelasi paling kuat dengan outcome dibandingkan dengan fitur yang lainnya yaitu bernilai 0.5. Sedangkan kolom Insulin memiliki nilai yang paling mendekati 0. Oleh karena itu saya menghapus kolom insulin <br>
